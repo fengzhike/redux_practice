@@ -10,4 +10,4 @@ url:https://github.com/fengzhike/redux_practice.git
 2. 运行项目
 
 >		$npm install 
-		$npm start
+>		$npm start
