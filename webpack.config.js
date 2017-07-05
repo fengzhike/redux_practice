@@ -10,40 +10,51 @@ module.exports = {
 	},
 	output:{
 		path:path.join(__dirname, 'dist'),
-		filename: '[name].[hash:8].bundle.js',
-        chunkFilename: '[name].[hash:8].chunk.js'
+		filename: '[name].[hash:8].bundle.js'
 	},
 	resolve: {
 	    extensions: [' ', '.js','.jsx', '.json','.css','.less']
 	},
 	module:{
-		loaders:[{
-			test:/\.jsx?$/,
-			loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
-			exclude: /node_modules/,
-			include: path.join(__dirname, 'src')
-		},{
-			test: /\.less$/,
-            loader:ExtractTextPlugin.extract({fallback:"style-loader", use:"css-loader!less-loader"}),
+		rules: [{
+            test: /\.css$/,
             exclude: /node_modules/,
-			include: path.join(__dirname, 'src')
-		},{
-			test: /\.css$/,
-            loader: ExtractTextPlugin.extract({fallback:"style-loader", use:"css-loader"}),
+
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader'
+            }]
+        }, {
+            test: /\.less$/,
+            // exclude: /node_modules/,
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader'
+            }, {
+                loader: 'less-loader'
+            }]
+        }, {
+            test: /\.js?$/,
             exclude: /node_modules/,
-			include: path.join(__dirname, 'src')
-		},{
-			test: /\.(jpg|png|svg|woff|woff2|ttf|eot|gif)$/,
-            exclude: /node_modules/,
-            include: path.join(__dirname, 'src'),
-            loader: "url-loader?limit=8192&name=[name].[hash:8].[ext]" //图片文件使用 url-loader 来处理，小于8kb的直接转为base64
-		}]
+            use: 'babel-loader'
+        },  {
+            test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
+            //exclude: /node_modules/,
+            use: {
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[hash:8].[ext]',
+                }
+            }
+        }],
 	},
 	plugins: [
-	    new webpack.HotModuleReplacementPlugin(),
-	    new webpack.NoEmitOnErrorsPlugin(),
+	    new webpack.HotModuleReplacementPlugin(), //热更新
+	    new webpack.NoEmitOnErrorsPlugin(), //错误不编译
 	    // devFlagPlugin,
-	    new ExtractTextPlugin('app.css'),
+	    new ExtractTextPlugin('app.css'), //css模块独立
 	    new HtmlWebpackPlugin({
 	            title: 'Redux Practive', //标题
 	            // favicon: './src/assets/img/favicon.ico', //favicon路径

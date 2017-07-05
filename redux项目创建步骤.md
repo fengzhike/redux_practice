@@ -2,7 +2,7 @@
 
 
 ## 初始化项目
->     npm init 
+>     npm init -y
 
 ## 安装react react-dom redux react-redux redux-logger
 npm install react react-dom redux react-redux redux-logger --save
@@ -49,18 +49,20 @@ npm install react react-dom redux react-redux redux-logger --save
 
 		output:[
 			path:path.join(__dirname, 'dist'),
-			filename: '[name].[hash:8].bundle.js',
-	        chunkFilename: '[name].[hash:8].chunk.js'
+			filename: '[name].[hash:8].bundle.js'
 		],
 
 ## loaders
 		module:{
-			loaders:[{
-				test:/\.jsx?$/,
-				loaders: [ 'babel-loader?presets[]=es2015&presets[]=react'],
-				exclude: /node_modules/,
-				include: path.join(__dirname, 'src')
-			},{...
+			rules: [{
+            test: /\.css$/,
+            exclude: /node_modules/,
+
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader'
+            }]...
 			...
 ## 插件
 	
