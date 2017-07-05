@@ -1,0 +1,56 @@
+{
+  "name": "redux_practice",
+  "version": "1.0.0",
+  "description": "react_redux 从零开始",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline --progress --colors --watch --compress --content-base ./dist  --port 1000 --host 0.0.0.0",
+    "build": "webpack --colors --display-error-details --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengzhike/redux_practice.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "react-redux",
+    "webpack",
+    "less",
+    "immutable"
+  ],
+  "author": "fsk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fengzhike/redux_practice/issues"
+  },
+  "homepage": "https://github.com/fengzhike/redux_practice#readme",
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "react-hot-loader": "^1.3.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
+}
