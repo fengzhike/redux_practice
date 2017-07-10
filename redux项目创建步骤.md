@@ -47,10 +47,10 @@
 
 ## 出口文件
 
-		output:[
+		output:{
 			path:path.join(__dirname, 'dist'),
 			filename: '[name].[hash:8].bundle.js'
-		],
+		},
 
 ## loaders
 		module:{
