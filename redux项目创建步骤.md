@@ -5,7 +5,7 @@
 >     npm init -y
 
 ## 安装react react-dom redux react-redux redux-logger
-npm install react react-dom redux react-redux redux-logger --save
+>	  npm install react react-dom redux react-redux redux-logger --save
 
 ## 安装 immutable moment 
 >    npm install immutable moment --save
