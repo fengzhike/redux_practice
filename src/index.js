@@ -6,7 +6,7 @@ class App extends React.Component{
 
 	}
 	handleClick(){
-		alert('就知道你不老实,许看不许摸')
+		alert('就知道你不老实,许看不许摸!!!!!')
 
 	}
 	render(){
